@@ -7,6 +7,21 @@
 export function getGreatestDiscoveryYear(data) {
   // Your code goes here...
   // feel free to import your `maxBy` or `minBy` methods from previous lessons
+  let year = data.asteroids.filter(ast => ast.discoveryYear)
+    .map(y => y.discoveryYear)
+    .reduce((acc, curValue) => {
+      acc[curValue] = (acc[curValue] || 0) + 1 ;
+      return acc;
+    }, {});
+  let mostYear = null;
+  let maxOccurrences = 0;
+  for (let number in year) {
+    if(year[number] > maxOccurrences) {
+      mostYear = Number(number);
+      maxOccurrences = year[number];
+    }
+  }
+  return mostYear;
 }
 
 // === TEST YOURSELF ===
