@@ -6,10 +6,9 @@ import { data } from "../data/data";
 
 export function getOrbitalPeriodsSum(data) {
   // Your code goes here...
-  let orbSum = data.asteroids.filter(orb => orb.orbitalPeriod)
+  return data.asteroids.filter(orb => orb.orbitalPeriod)
     .map(o => o.orbitalPeriod)
     .reduce((acc, curV) => acc + curV, 0);
-  return orbSum;
 }
 
 
